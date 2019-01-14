@@ -89,6 +89,7 @@ def prepare_dirs(delete_train_dir=False):
         filenames = glob.glob(FLAGS.dataset + "/*/*")
     else:
         filenames = glob.glob(FLAGS.dataset)
+
     return filenames
 
 
@@ -137,11 +138,9 @@ def _demo():
     # Execute demo
     srez_demo.demo1(sess)
 
-
 class TrainData(object):
     def __init__(self, dictionary):
         self.__dict__.update(dictionary)
-
 
 def _train():
     # Setup global tensorflow state
@@ -183,7 +182,6 @@ def _train():
     # Train model
     train_data = TrainData(locals())
     srez_train.train_model(train_data)
-
 
 def main(argv=None):
     # Training or showing off?
