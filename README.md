@@ -22,7 +22,7 @@ Finally, the generator network relies on ResNet modules as we've found them to t
 
 # Requirements
 
-You will need Python 3 with Tensorflow, numpy, scipy and [moviepy](http://zulko.github.io/moviepy/). See `requirements.txt` for details.
+You will need Python 3 with Tensorflow, numpy, scipy and [moviepy](http://zulko.github.io/moviepy/). 
 
 ## Dataset
 
