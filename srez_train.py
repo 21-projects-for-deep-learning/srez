@@ -29,6 +29,7 @@ def _summarize_progress(train_data, feature, label, gene_output, batch, suffix, 
     scipy.misc.toimage(image, cmin=0., cmax=1.).save(filename)
     print("保存文件到{}。".format(filename))
 
+
 def _save_checkpoint(train_data, batch):
     td = train_data
 
@@ -66,8 +67,8 @@ def train_model(train_data):
 
     lrval       = FLAGS.learning_rate_start
     start_time  = time.time()
-    done        = False
-    batch       = 0
+    done  = False
+    batch = 0
 
     assert FLAGS.learning_rate_half_life % 10 == 0
 
@@ -87,12 +88,8 @@ def train_model(train_data):
             # Show we are alive
             elapsed = int(time.time() - start_time)/60
             print('Progress[%3d%%], ETA[%4dm], Batch [%4d], G_Loss[%3.3f], D_Real_Loss[%3.3f], D_Fake_Loss[%3.3f]' %
-                  (int(100*elapsed/FLAGS.train_time), 
-                   FLAGS.train_time - elapsed,
-                   batch, 
-                   gene_loss, 
-                   disc_real_loss, 
-                   disc_fake_loss))
+                  (int(100*elapsed/FLAGS.train_time), FLAGS.train_time - elapsed,
+                   batch, gene_loss, disc_real_loss, disc_fake_loss))
 
             # Finished?            
             current_progress = elapsed / FLAGS.train_time
