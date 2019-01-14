@@ -85,7 +85,7 @@ def prepare_dirs(delete_train_dir=False):
     # filenames = sorted(filenames)
     # random.shuffle(filenames)
     # filenames = [os.path.join(FLAGS.dataset, f) for f in filenames]
-    if FLAGS.dataset == "my_lfw":
+    if FLAGS.dataset == "dataset":
         filenames = glob.glob(FLAGS.dataset + "/*/*")
     else:
         filenames = glob.glob(FLAGS.dataset)
