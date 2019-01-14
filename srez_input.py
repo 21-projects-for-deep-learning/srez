@@ -23,7 +23,7 @@ def setup_inputs(sess, filenames, image_size=None, capacity_factor=3):
 
     wiggle = 8
     off_x, off_y = 25-wiggle, 60-wiggle
-    crop_size = 150
+    crop_size = 170
     crop_size_plus = crop_size + 2*wiggle
     image = tf.image.crop_to_bounding_box(image, off_y, off_x, crop_size_plus, crop_size_plus)
     image = tf.random_crop(image, [crop_size, crop_size, 3])
@@ -33,7 +33,7 @@ def setup_inputs(sess, filenames, image_size=None, capacity_factor=3):
 
     if crop_size != image_size:
         image = tf.image.resize_area(image, [image_size, image_size])
-
+        
     # The feature is simply a Kx downscaled version
     K = 4
     downsampled = tf.image.resize_area(image, [image_size//K, image_size//K])

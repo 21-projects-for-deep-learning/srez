@@ -6,11 +6,11 @@ import time
 
 FLAGS = tf.app.flags.FLAGS
 
-def _summarize_progress(train_data, feature, label, gene_output, batch, suffix, max_samples=6):
+def _summarize_progress(train_data, feature, label, gene_output, batch, suffix, max_samples=8):
     td = train_data
 
     size = [label.shape[1], label.shape[2]]
-
+    
     nearest = tf.image.resize_nearest_neighbor(feature, size)
     nearest = tf.maximum(tf.minimum(nearest, 1.0), 0.0)
 
