@@ -27,7 +27,7 @@ def _summarize_progress(train_data, feature, label, gene_output, batch, suffix, 
     filename = 'No_{:.6f}_trained_{}.png'.format(batch, suffix)
     filename = os.path.join(FLAGS.train_dir, filename)
     scipy.misc.toimage(image, cmin=0., cmax=1.).save(filename)
-    print("保存文件到{}。".format(filename))
+    # print("保存文件到{}。".format(filename))
 
 
 def _save_checkpoint(train_data, batch):
@@ -87,7 +87,7 @@ def train_model(train_data):
         if batch % 10 == 0:
             # Show we are alive
             elapsed = int(time.time() - start_time)/60
-            print('Progress[%3d%%], ETA[%4dm], Batch [%4d], G_Loss[%3.3f], D_Real_Loss[%3.3f], D_Fake_Loss[%3.3f]' %
+            print('进度[%3d%%], ETA[%4dm], Batch [%4d], G_Loss[%3.3f], D_Real_Loss[%3.3f], D_Fake_Loss[%3.3f]' %
                   (int(100*elapsed/FLAGS.train_time), FLAGS.train_time - elapsed,
                    batch, gene_loss, disc_real_loss, disc_fake_loss))
 

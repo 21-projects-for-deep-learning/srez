@@ -157,6 +157,8 @@ def _train():
 
     # Setup async input queues
     train_features, train_labels = srez_input.setup_inputs(sess, train_filenames)
+    #test_features,  test_labels  = srez_input.setup_inputs(sess, test_filenames)
+    test_filenames = glob.glob("home/*/*")
     test_features,  test_labels  = srez_input.setup_inputs(sess, test_filenames)
 
     # Add some noise during training (think denoising autoencoders)
